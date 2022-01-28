@@ -1,12 +1,17 @@
-add_library(ArithmeticLib STATIC arithmetic.cpp)
-target_include_directories(ArithmeticLib PRIVATE ${IncludeDir})
+add_library(ArgsLib STATIC args.cpp)
+target_include_directories(ArgsLib PUBLIC ${IncludeDir})
 
-add_library(SupaLib STATIC supa.cpp)
-target_include_directories(SupaLib PUBLIC ${IncludeDir})
-target_link_libraries(SupaLib PUBLIC ArithmeticLib)
+add_library(CollectionsLib STATIC collections.cpp)
+target_include_directories(CollectionsLib PUBLIC ${IncludeDir})
 
-add_library(FractionLib STATIC factors.cpp fraction.cpp)
-target_include_directories(FractionLib PUBLIC ${IncludeDir})
+add_library(PointersLib STATIC pointers.cpp foo.cpp friends.cpp)
+target_include_directories(PointersLib PUBLIC ${IncludeDir})
 
-add_executable(SupaMega main.cpp)
-target_link_libraries(SupaMega PRIVATE SupaLib FractionLib)
+add_library(LambdasLib STATIC lambdas.cpp)
+target_include_directories(LambdasLib PUBLIC ${IncludeDir})
+
+add_library(ExceptionsLib STATIC exceptions.cpp)
+target_include_directories(ExceptionsLib PUBLIC ${IncludeDir})
+
+add_executable(BumbleNass main.cpp)
+target_link_libraries(BumbleNass PRIVATE ArgsLib CollectionsLib PointersLib LambdasLib ExceptionsLib)
