@@ -5,6 +5,7 @@
 #include "pointers.hpp"
 
 #include <algorithm>
+#include <cctype>
 #include <functional>
 #include <iostream>
 #include <map>
